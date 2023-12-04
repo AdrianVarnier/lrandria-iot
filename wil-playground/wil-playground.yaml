@@ -15,7 +15,7 @@ spec:
         app: wil-playground
     spec:
       containers:
-      - image: docker.io/wil42/playground:v1
+      - image: docker.io/wil42/playground:v2
         name: wil-playground
         ports:
         - containerPort: 8888
@@ -33,25 +33,3 @@ spec:
     targetPort: 8888
   selector:
     app: wil-playground
-
----
-
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: wil-playground-ingress
-  namespace: dev
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
-  rules:
-    - host:
-      http:
-        paths:
-          - pathType: Prefix
-            path: /
-            backend:
-              service:
-                name: wil-playground-service
-                port:
-                  number: 8888
