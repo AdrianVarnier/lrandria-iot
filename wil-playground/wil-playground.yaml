@@ -40,6 +40,7 @@ apiVersion: v1
 kind: Ingress
 metadata:
   name: wil-playground-ingress
+  namespace: dev
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
     traefik.ingress.kubernetes.io/rewrite-target: /
