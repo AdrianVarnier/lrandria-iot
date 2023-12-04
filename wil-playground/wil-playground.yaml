@@ -45,7 +45,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: localhost
+    - host:
       http:
         paths:
           - pathType: Prefix
@@ -55,20 +55,3 @@ spec:
                 name: wil-playground-service
                 port:
                   number: 8888
-
-# apiVersion: v1
-# kind: Ingress
-# metadata:
-#   name: wil-playground-ingress
-#   namespace: dev
-#   annotations:
-#     ingress.kubernetes.io/ssl-redirect: "false"
-#     traefik.ingress.kubernetes.io/rewrite-target: /
-# spec:
-#   rules:
-#   - http:
-#       paths:
-#       - path: /
-#         backend:
-#           serviceName: wil-playground-service
-#           servicePort: 8888
